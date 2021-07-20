@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Roboto.Bold.Condensed" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/bold_condensed</item>
+    </style>
+
+    <style name="Roboto.Condensed" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/condensed</item>
+    </style>
+
+    <style name="Roboto.Regular" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <style name="Roboto.Bold" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="Roboto.Light" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/roboto_light</item>
+    </style>
+
+</resources>

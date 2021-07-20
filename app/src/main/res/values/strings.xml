@@ -1,3 +1,360 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Ditenun</string>
+
+    <string name="google_maps_key">AIzaSyCGVF3r9qovAhJ6ZPtU1C_N3thJ4_Th2Ko</string>
+
+    <!-- tab title -->
+    <string name="tab_home_text">Beranda</string>
+    <string name="tab_function_text">Hasil Citra</string>
+    <string name="tab_settings">Pengaturan</string>
+    <string name="tab_home_generate">Hasilkan Motif</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="button_browse">Telusuri Tenunan</string>
+    <string name="toolbar_filter_title">Filters</string>
+    <string name="filter_settings_1">{fa-map}  ASAL TENUN</string>
+    <string name="filter_settings_2">{fa-wrench}  FUNGSI TENUN</string>
+    <string name="filter_menu_reset">RESET</string>
+    <string name="filter_menu_next">FILTER</string>
+
+    <string name="button_upload">Upload</string>
+    <string name="button_generate">Telusuri Motif</string>
+
+    <string name="filter_settings_region1">Sumatera</string>
+    <string name="filter_settings_region2">Jawa - Bali</string>
+    <string name="filter_settings_region3">Kalimantan</string>
+    <string name="filter_settings_region4">Sulawesi</string>
+    <string name="filter_settings_region5">Papua</string>
+    <string name="filter_settings_region6">Daerah - Lainnya</string>
+
+    <string name="filter_settings_function1">Busana</string>
+    <string name="filter_settings_function2">Adat - Pernikahan</string>
+    <string name="filter_settings_function3">Adat - Penghargaan</string>
+    <string name="filter_settings_function4">Adat - Syukuran</string>
+    <string name="filter_settings_function5">Adat - Lainnya</string>
+    <string name="title_activity_detail_tenun">Detail Tenun</string>
+    <string name="title_activity_detail_motif">Detail Motif</string>
+
+    <string name="toolbar_detail_tenun">Detail Tenun</string>
+    <string name="toolbar_detail_motif">Detail Motif</string>
+
+    <string name="item_param1">1</string>
+    <string name="item_param2">2</string>
+    <string name="item_param3">3</string>
+    <string name="item_param4">4</string>
+    <string name="item_param5">5</string>
+
+    <string name="source_text">Sumber</string>
+    <string name="generated_text">Hasil Generate</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="title_activity_pilih_motif">Pilih Seed Motif</string>
+    <string name="tenun_tersimpan">Tenun Nusantara</string>
+    <string name="gallery">Pattern</string>
+    <string name="slideshow">Kristik</string>
+    <string name="search_hint">Search</string>
+    <string name="tools">Login</string>
+    <string name="home">Home</string>
+
+    <!-- Acknowledgement -->
+    <string name="ack_unauthorized">(401) Unauthorized - Check your API KEY</string>
+    <string name="ack_not_found">(404) Not found - Check your API</string>
+    <string name="ack_fail_to_connect">Fail to connect - </string>
+    <string name="ack_fail_to_generate_kristik">Fail to generate kristik - </string>
+    <string name="ack_image_saved">Gambar Disimpan</string>
+    <string name="action_sign_in">Register</string>
+    <string name="action_sign_in_short">Password</string>
+    <string name="prompt_password">Password</string>
+    <string name="prompt_email">Email</string>
+
+    <!-- About -->
+    <string name="about_title">LPDP and Piksel Joint Project</string>
+    <string name="generate">Generate New Motif</string>
+
+    <string-array name="Model">
+        <item>Model-1</item>
+        <item>Model-2</item>
+        <item>Model-3</item>
+    </string-array>
+
+    <string-array name="Warna">
+        <item>Asli</item>
+        <item>Warna-warni</item>
+        <item>Hitam-Putih</item>
+    </string-array>
+    <string name="title_activity_generate">GenerateActivity</string>
+
+    <string name="permission_rationale">permission rationale</string>
+    <string name="error_invalid_password">Password must > 4</string>
+    <string name="error_field_required">harus diisi</string>
+    <string name="error_invalid_email">Format email salah</string>
+    <string name="error_incorrect_password">Password salah</string>
+
+    <string name="motif_tersimpan">Motif Tersimpan</string>
+    <string name="motif_nusantara">Motif Nusantara</string>
+    <string name="pilih_motif">Pilih Motif</string>
+
+    <string name="textBtnCamera">Camera</string>
+    <string name="textBtnGalery">Galery</string>
+    <string name="ditenunEditor">Ulos</string>
+
+    <string name="textPilihDariTemplate">Pilih Dari Template</string>
+    <string name="textSeedMotif">Seed Motif</string>
+    <string name="textHasilGenerate">Hasil Generate</string>
+    <string name="btnGenerate">Generate</string>
+    <string name="textGenerateMotif">Generate Motif</string>
+    <string name="textEditMotif">Edit Motif</string>
+    <string name="textDuplicatedMotif">Duplikasi Motif</string>
+    <string name="textSimpanMotif">Simpan</string>
+    <string name="textKonfirmasi">Konfirmasi</string>
+    <string name="textEditNamaMotif">ketikkan nama motif disini</string>
+    <string name="textBtnSelanjutnya">Selanjutnya</string>
+    <string name="textBtnBatal">Batal</string>
+    <string name="nol">0\u00B0</string>
+    <string name="sembilan_puluh">90\u00B0</string>
+    <string name="seratus_delapan_puluh">180\u00B0</string>
+    <string name="dua_ratus_tujuh_puluh">270\u00B0</string>
+    <string name="text_crop">Crop</string>
+    <string name="text_flip">Flip</string>
+    <string name="text_rotate">Rotate</string>
+
+    <string name="text_flip_horizontal">Horizontal</string>
+    <string name="text_flip_vertical">Vertical</string>
+    <string name="textSelanjutnya">Selanjutnya</string>
+    <string name="textDuplikasi">Duplikasi Motif</string>
+    <string name="crop_again">Crop Again</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_tambah_foto">tambah foto</string>
+    <string name="title_kamera">kamera</string>
+    <string name="kamera">Kamera</string>
+    <string name="all_photos">all photos</string>
+    <string name="filter">filter</string>
+    <string name="create_motif">Create Motif</string>
+    <string name="lihat_duplikasi">Lihat Duplikasi</string>
+
+    <string name="saving_kristik_successful" tools:ignore="ExtraTranslation">Kristik berhasil di simpan.</string>
+
+    <string-array name="filter_motif_nusantara">
+        <item>Filter</item>
+        <item>Daerah</item>
+        <item>Kain</item>
+    </string-array>
+    <string name="title_activity_kristik">Kristik Editor</string>
+
+
+    <string-array name="template_name">
+        <item>Sadum</item>
+        <item>Bintang Maratur</item>
+        <item>Ragi Idup</item>
+        <item>Mangiring</item>
+        <item>Custom</item>
+    </string-array>
+
+
+    <string name="generate_motif_lain">Hasilkan Motif Lain</string>
+    <string name="hasilkan_motif">Hasilkan Motif</string>
+    <string name="simpan">Simpan</string>
+    <string name="image12345">Motif</string>
+    <string name="semua_foto">Semua Foto</string>
+    <string name="rotasi_kanan">Rotasi Kanan</string>
+    <string name="rotasi_kiri">Rotasi Kiri</string>
+    <string name="simpan_perubahan">Simpan perubahan?</string>
+    <string name="tidak">Tidak</string>
+    <string name="simpanBaru">Simpan Baru</string>
+    <string name="pixel_1">1 Pixel</string>
+    <string name="kecil">Kecil</string>
+    <string name="sedang">Sedang</string>
+    <string name="besar">Besar</string>
+    <string name="dua">Sedikit</string>
+    <string name="banyak_warna">lebi</string>
+    <string name="lima">Sedang</string>
+    <string name="lima_puluh">Banyak</string>
+    <string name="hasilkan_kristik">Hasilkan Kristik</string>
+    <string name="detail_tenun">Detail Tenun</string>
+
+    <string name="skip">Lewatkan</string>
+    <string name="retry">Coba Lagi</string>
+    <string name="error">Error</string>
+    <string name="select_image">Select Image</string>
+    <string name="national_motif">Motif Nusantara</string>
+    <string name="my_motif">Motif Saya</string>
+    <string name="press_once_more_to_exit">Tekan sekali lagi untuk keluar</string>
+    <string name="stock_image">Gambar</string>
+    <string name="motif">Motif</string>
+    <string name="kristik">Kristik</string>
+    <string name="generate_motif">Hasilkan Motif</string>
+    <string name="generate_kristik">Hasilkan Kristik</string>
+    <string name="enter_motif_name">Masukkan nama motif</string>
+    <string name="enter_kristik_name">Masukkan nama kristik</string>
+    <string name="ok">Ok</string>
+    <string name="save">Simpan</string>
+    <string name="cencel">Batal</string>
+    <string name="motif_name">Nama Motif</string>
+    <string name="edit">Edit</string>
+    <string name="crop">Potong</string>
+    <string name="flip">Balik</string>
+    <string name="rotate">Putar</string>
+    <string name="flip_vertical">Vertikal</string>
+    <string name="flip_horizontal">Horizontal</string>
+    <string name="rotate_right">Putar Kanan</string>
+    <string name="rotate_left">Putar Kiri</string>
+    <string name="change_not_applied_apply">Perubahan belum diterapkan, terapkan?</string>
+    <string name="export">Export</string>
+    <string name="view_duplication">Lihat Duplikasi</string>
+    <string name="kristik_name">Nama Kristik</string>
+    <string name="size">Ukuran</string>
+    <string name="color">Warna</string>
+    <string name="edit_motif">Edit Motif</string>
+    <string name="edit_kristik">Edit Kristik</string>
+    <string name="multi_selector">Multi Selector</string>
+    <string name="magic_selector">Magic Selector</string>
+    <string name="keluartanpasimpan">Apakah anda ingin kembali?</string>
+    <string name="kembali">Kembali</string>
+    <string name="pilih_warna"><![CDATA[Pilihan Warna =>]]></string>
+    <string name="kristik_black">Kristik Kosong</string>
+    <string name="desain_kristik">Kristik</string>
+    <string name="hasil_desain">Ulos</string>
+    <string name="ulos">Ulos</string>
+    <string name="beranda">Beranda</string>
+    <string name="warna">Warna</string>
+    <string name="edit_color">Ubah Warna</string>
+    <string name="save_to_galery">Simpan ke Galery ?</string>
+    <string name="penilaian_welcome_title">Berikan penilaian Anda</string>
+    <string name="penilaian_welcome_deskripsi">Terimakasih telah menggunakan aplikasi DiTenun. Berikan penilaian, saran dan kritik anda tentang aplikasi DiTenun ini agar kami dapat meningkatkan kualitas aplikasi ini lebih baik lagi.</string>
+    <string name="Open">Open</string>
+    <string name="close">Tutup</string>
+
+    <string-array name="jenis_tenun">
+        <item>-- Jenis Penenun --</item>
+        <item>Ulos Harungguan</item>
+        <item>Ulos Sadum</item>
+        <item>Ulos Ragiidup</item>
+        <item>Ulos Mangiring</item>
+        <item>Ulos Sitoluntuho</item>
+        <item>Ulos Suri-suri</item>
+        <item>Ulos Bintang Maratur</item>
+        <item>Ulos Ragihotang</item>
+    </string-array>
+
+    <string name="name_text">Enter name...</string>
+    <string name="profession_text">Enter profession</string>
+
+    <!--Login-->
+    <string name="login_title">Sign In ke Ditenun</string>
+    <string name="login_desc">Apakah Anda belum memiliki akun?</string>
+    <string name="email">E-mail</string>
+    <string name="email_hint">Email atau No HP</string>
+    <string name="password">Password</string>
+    <string name="remember_me">Remember me</string>
+    <string name="forgot_password">Lupa password?</string>
+    <string name="sign_in">Sign In</string>
+    <string name="underlines_sign_in"><u>Sign In</u></string>
+
+    <!--Register-->
+    <string name="register_title">Membuat Akun Baru</string>
+    <string name="register_desc">Apakah Anda sudah memiliki akun?</string>
+    <string name="username">Username</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="underlined_sign_up"><u>Sign Up</u></string>
+    <string name="full_name">Nama Lengkap</string>
+    <string name="phone">Nomor HP</string>
+    <string name="address">Alamat Lengkap</string>
+    <string name="penenun_type">Jenis Penenun</string>
+
+    <!--Dashboard-->
+    <string name="product">Produk</string>
+    <string name="cart">Cart</string>
+    <string name="account">Akun</string>
+    <string name="shooping">Belanja</string>
+    <string name="about">Tentang Ditenun</string>
+    <string name="research">Penelitian</string>
+    <string name="design">Desain Motif</string>
+    <string name="search_product_hint">Cari produk tenun disini</string>
+    <string name="btn_detail_description"><u>Lihat Deskripsi</u></string>
+    <string name="amount">Jumlah</string>
+    <string name="buy">Beli</string>
+    <string name="create_new_motive">Cara hasilkan motif baru:</string>
+    <string name="create_new_motive_desc">Kalian bisa menciptakan desain motif digital dan kain tenun modern sesuai kreasi. Selamat mencoba!</string>
+    <string name="gallery_motive">Gallery Motif Nusantara</string>
+    <string name="search_motif_hint">Cari motif disini</string>
+    <string name="select_motive">Pilih Motif</string>
+    <string name="try_app">Coba Aplikasi</string>
+    <string name="landing_page">Selamat datang di Mobile App DiTenun. Kami membuat aplikasi pencipta motif tenun digital, dan memelihara tradisi tenun lewat teknologi.</string>
+    <string name="detail_motive">Detail Motif</string>
+    <string name="loading">Sedang Memproses...</string>
+    <string name="web_app_button_title">Coba DiTenun Web App untuk menyempurnakan desain motif tenun anda!</string>
+    <string name="web_app_button">Coba Web App</string>
+
+    <!--Product-->
+    <string name="new_arrivals">New Arrivals</string>
+    <string name="see_all"><u>See All</u></string>
+    <string name="category">Kategori</string>
+    <string name="product_description">Deskripsi</string>
+    <string name="new_arrivals_desc">Berbagai produk fashion dan aksesoris dari kain tenun modern untuk menemani hari-hari anda!</string>
+
+    <!--Cart-->
+    <string name="cart_title">Keranjang Belanja</string>
+    <string name="total">TOTAL</string>
+    <string name="checkout">Checkout</string>
+
+    <!--Account-->
+    <string name="account_title">Hi, Tenun</string>
+    <string name="account_subtitle">Selamat datang di Ditenun.</string>
+    <string name="address_title">Alamat</string>
+    <string name="purchase_history">Riwayat Pemesanan</string>
+
+    <!--Payment-->
+    <string name="payment_title">Pembayaran</string>
+    <string name="payment_button">Bayar Sekarang</string>
+    <string name="payment_method_title">Pilih Metode Pembayaran</string>
+    <string name="payment_summary_title">Ringkasan Pemesanan</string>
+    <string name="total_payment">Total Pembayaran</string>
+    <string name="sub_total_payment">Subtotal Produk</string>
+    <string name="voucher_and_promo">Voucher &amp; Promo</string>
+    <string name="shipping_price">Biaya Pengiriman</string>
+    <string name="selected_payment_method">Metode Pembayaran</string>
+
+    <!--Delivery-->
+    <string name="delivery_title">Pengiriman</string>
+    <string name="next_button">Lanjut</string>
+    <string name="delivery_address_title">Alamat Pengiriman</string>
+    <string name="order_summary_title">Pesanan Anda</string>
+    <string name="delivery_method_title">Metode Pengiriman</string>
+    <string name="payment_details_title">Rincian Pembayaran</string>
+    <string name="total_order_title">Total Belanja</string>
+    <string name="shipped_by">Pengiriman Oleh</string>
+    <string name="delivery_no">Nomor Pengiriman</string>
+
+    <!--Track-->
+    <string name="track_title">Lacak Barang</string>
+    <string name="delivery_status">Status Pengiriman</string>
+    <string name="track_button">Lacak</string>
+    <string name="ordered_product">Produk Pesanan</string>
+    <string name="enter_address">Alamat Pengiriman</string>
+    <string name="enter_address_hint">Masukkan alamat pengiriman anda</string>
+    <string name="enter_address_btn">Pilih Alamat</string>
+
+    <!--Module-->
+    <string name="ecommerce_module">Shop</string>
+    <string name="design_module">Desain \nMotif</string>
+
+    <!--Order-->
+    <string name="order_number">Nomor Pesanan</string>
+    <string name="transaction_date">Tanggal Transaksi</string>
+    <string name="payment_status">Status Pembayaran</string>
+    <string name="payment_method">Metode Pembayaran</string>
+    <string name="order_again">Belanja Lagi</string>
+    <string name="open_list_order">Daftar Pesanan</string>
+    <string name="my_order">Pesanan Saya</string>
+    <string name="detail_order">Lihat Detail</string>
+    <string name="track_order">Lacak Pesanan</string>
+    <string name="list_transaction">Daftar Transaksi</string>
 </resources>
