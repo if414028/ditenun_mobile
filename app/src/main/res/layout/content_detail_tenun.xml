@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:id="@+id/content_detail_tenun"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/_16sdp"
+            android:layout_marginRight="@dimen/_16sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:orientation="vertical"
+            tools:context="com.lpdp.del.tenunapp.function.detail.DetailTenunActivity"
+            tools:showIn="@layout/activity_detail_tenun">
+
+            <ImageView
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/_16sdp"
+                android:src="@drawable/ic_detail" />
+
+            <ImageView
+                android:id="@+id/thumbTenun"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginBottom="16dp"
+                android:fitsSystemWindows="true"
+                android:scaleType="centerCrop"
+                android:transitionName="thumb"
+                tools:src="@drawable/splash_background" />
+
+            <View
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="0.7dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@color/dark_blue" />
+
+            <TextView
+                android:id="@+id/titleTenun"
+                style="@style/Roboto.Light"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:textAlignment="center"
+                android:textColor="@color/dark_blue"
+                android:textSize="@dimen/_14ssp"
+                tools:text="Ulos Bintang Maratur" />
+
+            <TextView
+                android:id="@+id/historyTenun"
+                style="@style/Roboto.Condensed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                tools:text="Sejarah Tenun" />
+
+            <TextView
+                android:id="@+id/descTenun"
+                style="@style/Roboto.Condensed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Deskripsi Tenun" />
+
+            <TextView
+                android:id="@+id/functionTenun"
+                style="@style/Roboto.Condensed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Fungsi Tenun" />
+
+            <TextView
+                android:id="@+id/originTenun"
+                style="@style/Roboto.Condensed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="Asal Tenun" />
+
+            <ImageView
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_gravity="center"
+                android:src="@drawable/logo_ditenun_white_strip"
+                app:tint="@color/dark_blue" />
+
+            <TextView
+                android:id="@+id/textMotif"
+                style="@style/Roboto.Light"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/select_motive"
+                android:textAlignment="center"
+                android:textColor="@color/black_text"
+                android:textSize="@dimen/_14ssp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerviewulos_id"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/_16sdp"
+                android:gravity="center"
+                android:nestedScrollingEnabled="false" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

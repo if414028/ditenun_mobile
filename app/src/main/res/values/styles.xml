@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="Roboto.Mono.Regular" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/regular</item>
+    </style>
+
+    <style name="Roboto.Mono.Bold" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/bold</item>
+    </style>
+
+    <style name="Roboto.Mono.SemiBold" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/semibold</item>
+    </style>
+
     <style name="Roboto.Bold.Condensed" parent="TextAppearance.AppCompat">
         <item name="android:fontFamily">@font/bold_condensed</item>
     </style>
@@ -19,6 +31,30 @@
 
     <style name="Roboto.Light" parent="TextAppearance.AppCompat">
         <item name="android:fontFamily">@font/roboto_light</item>
+    </style>
+
+    <style name="BottomNavView" parent="">
+        <item name="elevation">@dimen/_8sdp</item>
+        <item name="enforceTextAppearance">false</item>
+        <item name="enforceMaterialTheme">false</item>
+        <item name="itemBackground">?attr/selectableItemBackgroundBorderless</item>
+        <item name="itemHorizontalTranslationEnabled">true</item>
+        <item name="itemIconSize">@dimen/design_bottom_navigation_icon_size</item>
+        <item name="labelVisibilityMode">auto</item>
+    </style>
+
+    <style name="filterDialogTheme">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsFloating">false</item>
+    </style>
+
+    <style name="DitenunModal" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/ditenun_bottom_sheet_background</item>
+    </style>
+
+    <style name="DitenunBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/DitenunModal</item>
     </style>
 
 </resources>

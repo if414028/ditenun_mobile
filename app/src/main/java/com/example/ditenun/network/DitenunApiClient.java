@@ -19,6 +19,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class DitenunApiClient {
 
+    public static final String ENDPOINT = "http://mobile.ditenun.com/api/";
     public static final String BASE_URL = "http://mobile.ditenun.com";
     public static final String ACCESS_TOKEN = "Jt3nuN_20161130";
     private static Retrofit retrofit = null;

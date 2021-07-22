@@ -59,4 +59,13 @@ dependencies {
 
     /* Realm */
     implementation "io.realm:realm-gradle-plugin:10.0.1"
+
+    /* Image Slider */
+    implementation "com.github.bumptech.glide:glide:4.11.0"
+    annotationProcessor "com.github.bumptech.glide:compiler:4.11.0"
+
+    implementation "com.github.firdausmaulan:GlideSlider:1.5.1"
+
+    /* Picasso */
+    implementation 'com.squareup.picasso:picasso:2.5.2'
 }
