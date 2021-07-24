@@ -69,13 +69,13 @@ public class DetailOrderActivity extends AppCompatActivity {
 
     private void observeLiveData() {
         viewModel.getSuccessGetDetailOrder().observe(this, aVoid -> {
-            productAdapter.setMainData(viewModel.getOrder().getProduct());
-            productAdapter.notifyDataSetChanged();
-
-            binding.tvOrderNumberValue.setText(viewModel.getOrder().getOrderNo());
-            binding.tvOrderDateValue.setText(getReadableDateFormat(Long.parseLong(viewModel.getOrder().getOrderDate())));
-            binding.tvPaymentStatusValue.setText(viewModel.getOrder().getPaymentStatus());
-            binding.tvPaymentMethodValue.setText(viewModel.getOrder().getPaymentMethod().getPaymentName());
+//            productAdapter.setMainData(viewModel.getOrder().getProduct());
+//            productAdapter.notifyDataSetChanged();
+//
+//            binding.tvOrderNumberValue.setText(viewModel.getOrder().getOrderNo());
+//            binding.tvOrderDateValue.setText(getReadableDateFormat(Long.parseLong(viewModel.getOrder().getOrderDate())));
+//            binding.tvPaymentStatusValue.setText(viewModel.getOrder().getPaymentStatus());
+//            binding.tvPaymentMethodValue.setText(viewModel.getOrder().getPaymentMethod().getPaymentName());
         });
     }
 

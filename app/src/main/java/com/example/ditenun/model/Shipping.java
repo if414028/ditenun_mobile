@@ -3,12 +3,43 @@ package com.example.ditenun.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class Shipping implements Parcelable {
 
     private Integer id;
     private String courierName;
     private Double shipPrice;
     private boolean isSelected;
+
+    @SerializedName("first_name")
+    @Expose
+    private String firstName;
+
+    @SerializedName("last_name")
+    @Expose
+    private String lastName;
+
+    @SerializedName("address_1")
+    @Expose
+    private String address1;
+
+    @SerializedName("address_2")
+    @Expose
+    private String address2;
+
+    @SerializedName("city")
+    @Expose
+    private String city;
+
+    @SerializedName("state")
+    @Expose
+    private String state;
+
+    @SerializedName("postcode")
+    @Expose
+    private String postCode;
 
     public Shipping() {
     }
@@ -26,6 +57,13 @@ public class Shipping implements Parcelable {
             shipPrice = in.readDouble();
         }
         isSelected = in.readByte() != 0;
+        firstName = in.readString();
+        lastName = in.readString();
+        address1 = in.readString();
+        address2 = in.readString();
+        city = in.readString();
+        state = in.readString();
+        postCode = in.readString();
     }
 
     @Override
@@ -44,6 +82,13 @@ public class Shipping implements Parcelable {
             dest.writeDouble(shipPrice);
         }
         dest.writeByte((byte) (isSelected ? 1 : 0));
+        dest.writeString(firstName);
+        dest.writeString(lastName);
+        dest.writeString(address1);
+        dest.writeString(address2);
+        dest.writeString(city);
+        dest.writeString(state);
+        dest.writeString(postCode);
     }
 
     @Override
@@ -95,4 +140,59 @@ public class Shipping implements Parcelable {
         isSelected = selected;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getAddress1() {
+        return address1;
+    }
+
+    public void setAddress1(String address1) {
+        this.address1 = address1;
+    }
+
+    public String getAddress2() {
+        return address2;
+    }
+
+    public void setAddress2(String address2) {
+        this.address2 = address2;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getPostCode() {
+        return postCode;
+    }
+
+    public void setPostCode(String postCode) {
+        this.postCode = postCode;
+    }
 }

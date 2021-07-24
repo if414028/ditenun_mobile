@@ -5,7 +5,6 @@ import com.example.ditenun.model.Order;
 import com.example.ditenun.model.PaymentMethod;
 import com.example.ditenun.model.Product;
 import com.example.ditenun.network.response.ResponseCommerceLogin;
-import com.example.ditenun.network.response.ResponseGetUser;
 
 import java.util.List;
 
@@ -48,7 +47,12 @@ public interface WooCommerceNetworkInterface {
     Call<List<PaymentMethod>> getListPaymentGetaways();
 
     @GET("wp-json/wc/v3/orders")
-    Call<List<Order>> getListOrders();
+    Call<List<Order>> getListOrders(
+            @Query("consumer_key") String consumerKey,
+            @Query("consumer_secret") String consumerSecret,
+            @Query("customer") Integer customerId,
+            @Query("page") Integer page
+    );
 
     @GET("wp-json/wc/v3/orders")
     Call<Order> getDetailOrder(@Query("id") String id);

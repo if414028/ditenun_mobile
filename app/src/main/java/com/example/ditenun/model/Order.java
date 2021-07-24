@@ -3,14 +3,15 @@ package com.example.ditenun.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Order implements Parcelable {
 
     private List<Product> product = new ArrayList<>();
-    private Shipping shipping;
-    private PaymentMethod paymentMethod;
     private String orderNo;
     private String orderDate;
     private String address;
@@ -20,13 +21,43 @@ public class Order implements Parcelable {
     private String paymentStatusCode;
     private ShippingStatus shippingStatus;
 
+    @SerializedName("id")
+    @Expose
+    private Integer oderId;
+
+    @SerializedName("date_created")
+    @Expose
+    private String createdDate;
+
+    @SerializedName("customer_id")
+    @Expose
+    private Integer customerId;
+
+    @SerializedName("total")
+    @Expose
+    private Double totalPrice;
+
+    @SerializedName("shipping")
+    @Expose
+    private Shipping shipping;
+
+    @SerializedName("payment_method")
+    @Expose
+    private String paymentMethod;
+
+    @SerializedName("payment_method_title")
+    @Expose
+    private String paymentMethodTitle;
+
+    @SerializedName("line_items")
+    @Expose
+    private List<Product> productList;
+
     public Order() {
     }
 
     protected Order(Parcel in) {
         product = in.createTypedArrayList(Product.CREATOR);
-        shipping = in.readParcelable(Shipping.class.getClassLoader());
-        paymentMethod = in.readParcelable(PaymentMethod.class.getClassLoader());
         orderNo = in.readString();
         orderDate = in.readString();
         address = in.readString();
@@ -35,13 +66,31 @@ public class Order implements Parcelable {
         paymentStatus = in.readString();
         paymentStatusCode = in.readString();
         shippingStatus = in.readParcelable(ShippingStatus.class.getClassLoader());
+        if (in.readByte() == 0) {
+            oderId = null;
+        } else {
+            oderId = in.readInt();
+        }
+        createdDate = in.readString();
+        if (in.readByte() == 0) {
+            customerId = null;
+        } else {
+            customerId = in.readInt();
+        }
+        if (in.readByte() == 0) {
+            totalPrice = null;
+        } else {
+            totalPrice = in.readDouble();
+        }
+        shipping = in.readParcelable(Shipping.class.getClassLoader());
+        paymentMethod = in.readString();
+        paymentMethodTitle = in.readString();
+        productList = in.createTypedArrayList(Product.CREATOR);
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeTypedList(product);
-        dest.writeParcelable(shipping, flags);
-        dest.writeParcelable(paymentMethod, flags);
         dest.writeString(orderNo);
         dest.writeString(orderDate);
         dest.writeString(address);
@@ -50,6 +99,29 @@ public class Order implements Parcelable {
         dest.writeString(paymentStatus);
         dest.writeString(paymentStatusCode);
         dest.writeParcelable(shippingStatus, flags);
+        if (oderId == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(oderId);
+        }
+        dest.writeString(createdDate);
+        if (customerId == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(customerId);
+        }
+        if (totalPrice == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeDouble(totalPrice);
+        }
+        dest.writeParcelable(shipping, flags);
+        dest.writeString(paymentMethod);
+        dest.writeString(paymentMethodTitle);
+        dest.writeTypedList(productList);
     }
 
     @Override
@@ -85,12 +157,60 @@ public class Order implements Parcelable {
         this.shipping = shipping;
     }
 
-    public PaymentMethod getPaymentMethod() {
+    public Integer getOderId() {
+        return oderId;
+    }
+
+    public void setOderId(Integer oderId) {
+        this.oderId = oderId;
+    }
+
+    public String getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(String createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public Integer getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(Integer customerId) {
+        this.customerId = customerId;
+    }
+
+    public Double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(Double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public String getPaymentMethod() {
         return paymentMethod;
     }
 
-    public void setPaymentMethod(PaymentMethod paymentMethod) {
+    public void setPaymentMethod(String paymentMethod) {
         this.paymentMethod = paymentMethod;
+    }
+
+    public String getPaymentMethodTitle() {
+        return paymentMethodTitle;
+    }
+
+    public void setPaymentMethodTitle(String paymentMethodTitle) {
+        this.paymentMethodTitle = paymentMethodTitle;
+    }
+
+    public List<Product> getProductList() {
+        return productList;
+    }
+
+    public void setProductList(List<Product> productList) {
+        this.productList = productList;
     }
 
     public String getOrderNo() {
@@ -157,8 +277,10 @@ public class Order implements Parcelable {
         this.shippingStatus = shippingStatus;
     }
 
-    public void addProduct(Product product){
+    public void addProduct(Product product) {
         this.product.add(product);
     }
+
+
 
 }

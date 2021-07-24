@@ -2,6 +2,7 @@ package com.example.ditenun.activity.commerce.order.list;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -34,6 +35,8 @@ public class OrderActivity extends AppCompatActivity {
     private SimpleRecyclerAdapter<Order> orderAdapter;
     private SimpleRecyclerAdapter<Product> productAdapter;
 
+    private int pageNo = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,9 +44,13 @@ public class OrderActivity extends AppCompatActivity {
         viewModel = ViewModelProviders.of(this).get(OrderViewModel.class);
 
         initLayout();
+        observeLiveData();
+        viewModel.fetchOrders(pageNo);
     }
 
     private void initLayout() {
+        binding.setIsEmpty(false);
+        binding.setIsError(false);
         binding.btnBack.setOnClickListener(view -> onBackPressed());
         initOrderRecyclerView();
     }
@@ -53,22 +60,22 @@ public class OrderActivity extends AppCompatActivity {
         orderAdapter = new SimpleRecyclerAdapter<>(new ArrayList<>(), R.layout.item_my_order, (holder, item) -> {
             ItemMyOrderBinding itemBinding = (ItemMyOrderBinding) holder.getLayoutBinding();
 
-            itemBinding.tvOrderNumber.setText(String.format("Nomor Pesanan : %s", item.getOrderNo()));
-            itemBinding.tvOrderDate.setText(getReadableDateFormat(Long.parseLong(item.getOrderDate())));
+            itemBinding.tvOrderNumber.setText(String.format("Nomor Pesanan : %s", item.getOderId()));
+            itemBinding.tvOrderDate.setText(item.getCreatedDate());
 
-            itemBinding.rvProduct.setLayoutManager(new LinearLayoutManager(getApplicationContext(), RecyclerView.HORIZONTAL, false));
-            productAdapter = new SimpleRecyclerAdapter<>(new ArrayList<>(), R.layout.item_new_arrivals, (productHolder, productItem) -> {
-                ItemNewArrivalsBinding productItemBinding = (ItemNewArrivalsBinding) productHolder.getLayoutBinding();
-                productItemBinding.lyPrice.setVisibility(View.GONE);
-                if (productItem != null) {
-                    if (productItem.getImages() != null) {
-                        Picasso.with(getApplicationContext()).load(productItem.getImages().get(0).getSrc()).into(productItemBinding.imgNewArrivals);
-                    }
-                }
-            });
-            itemBinding.rvProduct.setAdapter(productAdapter);
-            productAdapter.setMainData(item.getProduct());
-            productAdapter.notifyDataSetChanged();
+//            itemBinding.rvProduct.setLayoutManager(new LinearLayoutManager(getApplicationContext(), RecyclerView.HORIZONTAL, false));
+//            productAdapter = new SimpleRecyclerAdapter<>(new ArrayList<>(), R.layout.item_new_arrivals, (productHolder, productItem) -> {
+//                ItemNewArrivalsBinding productItemBinding = (ItemNewArrivalsBinding) productHolder.getLayoutBinding();
+//                productItemBinding.lyPrice.setVisibility(View.GONE);
+//                if (productItem != null) {
+//                    if (productItem.getImages() != null) {
+//                        Picasso.with(getApplicationContext()).load(productItem.getImages().get(0).getSrc()).into(productItemBinding.imgNewArrivals);
+//                    }
+//                }
+//            });
+//            itemBinding.rvProduct.setAdapter(productAdapter);
+//            productAdapter.setMainData(item.getProduct());
+//            productAdapter.notifyDataSetChanged();
 
             itemBinding.btnDetailOrder.setOnClickListener(view -> {
                 Intent intent = new Intent(getApplicationContext(), DetailOrderActivity.class);
@@ -92,5 +99,31 @@ public class OrderActivity extends AppCompatActivity {
         cal.setTimeInMillis(timestamp);
         String date = DateFormat.format("dd MMM yyyy", cal).toString();
         return date;
+    }
+
+    private void observeLiveData() {
+        viewModel.getSuccessGetOrders().observe(this, unused -> {
+            binding.setIsLoaded(true);
+            binding.setIsEmpty(false);
+            binding.setIsError(false);
+            orderAdapter.setMainData(viewModel.getOrderList());
+            orderAdapter.notifyDataSetChanged();
+        });
+
+        viewModel.getEmptyGetOrders().observe(this, unused -> {
+            if (orderAdapter.getItemCount() <= 0) {
+                binding.setIsEmpty(true);
+                binding.setIsLoaded(true);
+                binding.setIsError(false);
+            }
+        });
+
+        viewModel.getErrorGetOrders().observe(this, unused -> {
+            if (orderAdapter.getItemCount() <= 0) {
+                binding.setIsLoaded(true);
+                binding.setIsEmpty(false);
+                binding.setIsError(true);
+            }
+        });
     }
 }

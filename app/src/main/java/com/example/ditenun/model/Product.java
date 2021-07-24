@@ -3,6 +3,7 @@ package com.example.ditenun.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -10,67 +11,96 @@ import java.util.List;
 public class Product implements Parcelable {
 
     @SerializedName("id")
+    @Expose
     private Integer id;
 
     @SerializedName("name")
+    @Expose
     private String name;
 
     @SerializedName("slug")
+    @Expose
     private String slug;
 
     @SerializedName("permalink")
+    @Expose
     private String permalink;
 
     @SerializedName("date_created")
+    @Expose
     private String dateCreated;
 
     @SerializedName("status")
+    @Expose
     private String status;
 
     @SerializedName("catalog_visibility")
+    @Expose
     private String catalogVisibility;
 
     @SerializedName("description")
+    @Expose
     private String description;
 
     @SerializedName("short_description")
+    @Expose
     private String shortDescription;
 
     @SerializedName("sku")
+    @Expose
     private String sku;
 
     @SerializedName("price")
+    @Expose
     private String price;
 
     @SerializedName("regular_price")
+    @Expose
     private String regularPrice;
 
     @SerializedName("sale_price")
+    @Expose
     private String salePrice;
 
     @SerializedName("on_sale")
+    @Expose
     private Boolean onSale;
 
     @SerializedName("purchasable")
+    @Expose
     private Boolean purchasable;
 
     @SerializedName("stock_quantity")
+    @Expose
     private Integer stockQuantity;
 
     @SerializedName("stock_status")
+    @Expose
     private String stockStatus;
 
     @SerializedName("weight")
+    @Expose
     private String weight;
 
     @SerializedName("dimensions")
+    @Expose
     private ProductDimension dimensions;
 
     @SerializedName("images")
+    @Expose
     private List<ProductImages> images;
 
     @SerializedName("attributes")
+    @Expose
     private List<ProductAttributes> attributes;
+
+    @SerializedName("quantity")
+    @Expose
+    private Integer quantity;
+
+    @SerializedName("subtotal")
+    @Expose
+    private Double subtotal;
 
     private int purchasedStock;
 

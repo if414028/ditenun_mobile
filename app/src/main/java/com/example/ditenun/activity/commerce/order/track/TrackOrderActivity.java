@@ -66,19 +66,19 @@ public class TrackOrderActivity extends AppCompatActivity {
 
     private void observeLiveData() {
         viewModel.getSuccessGetDetailOrder().observe(this, aVoid -> {
-            productAdapter.setMainData(viewModel.getOrder().getProduct());
-            productAdapter.notifyDataSetChanged();
-
-            binding.tvOrderNumberValue.setText(viewModel.getOrder().getOrderNo());
-            binding.tvOrderDateValue.setText(getReadableDateFormat(Long.parseLong(viewModel.getOrder().getOrderDate())));
-            binding.tvPaymentStatusValue.setText(viewModel.getOrder().getPaymentStatus());
-            binding.tvPaymentMethodValue.setText(viewModel.getOrder().getPaymentMethod().getPaymentName());
-
-            if (viewModel.getOrder().getShippingStatus() != null)
-                binding.tvDeliveryStatus.setText(getShippingStatus());
-            else binding.tvDeliveryStatus.setText(viewModel.getOrder().getPaymentStatus());
-
-            binding.btnTrack.setEnabled(viewModel.getOrder().getShippingStatus() != null);
+//            productAdapter.setMainData(viewModel.getOrder().getProduct());
+//            productAdapter.notifyDataSetChanged();
+//
+//            binding.tvOrderNumberValue.setText(viewModel.getOrder().getOrderNo());
+//            binding.tvOrderDateValue.setText(getReadableDateFormat(Long.parseLong(viewModel.getOrder().getOrderDate())));
+//            binding.tvPaymentStatusValue.setText(viewModel.getOrder().getPaymentStatus());
+//            binding.tvPaymentMethodValue.setText(viewModel.getOrder().getPaymentMethod().getPaymentName());
+//
+//            if (viewModel.getOrder().getShippingStatus() != null)
+//                binding.tvDeliveryStatus.setText(getShippingStatus());
+//            else binding.tvDeliveryStatus.setText(viewModel.getOrder().getPaymentStatus());
+//
+//            binding.btnTrack.setEnabled(viewModel.getOrder().getShippingStatus() != null);
         });
     }
 

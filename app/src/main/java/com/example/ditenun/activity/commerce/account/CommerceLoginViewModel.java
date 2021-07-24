@@ -28,7 +28,7 @@ public class CommerceLoginViewModel extends AndroidViewModel {
     }
 
     public void doLogin(String username, String password) {
-        WooCommerceNetworkInterface apiInterface = WooCommerceApiClient.createService(WooCommerceNetworkInterface.class, WooCommerceApiClient.CONSUMER_KEY, WooCommerceApiClient.CONSUMER_SECRET);
+        WooCommerceNetworkInterface apiInterface = WooCommerceApiClient.createService(WooCommerceNetworkInterface.class, "");
         Call<ResponseCommerceLogin> call = apiInterface.login("", username, password);
         call.enqueue(new Callback<ResponseCommerceLogin>() {
             @Override
