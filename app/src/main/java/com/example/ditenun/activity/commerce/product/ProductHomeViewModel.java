@@ -1,6 +1,7 @@
 package com.example.ditenun.activity.commerce.product;
 
 import android.app.Application;
+import android.content.Intent;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -35,9 +36,9 @@ public class ProductHomeViewModel extends AndroidViewModel {
     }
 
 
-    public void fetchAllProduct() {
-        WooCommerceNetworkInterface apiInterface = WooCommerceApiClient.createService(WooCommerceNetworkInterface.class, WooCommerceApiClient.CONSUMER_KEY, WooCommerceApiClient.CONSUMER_SECRET);
-        Call<List<Product>> call = apiInterface.getListProducts();
+    public void fetchAllProduct(Integer pageNo) {
+        WooCommerceNetworkInterface apiInterface = WooCommerceApiClient.createService(WooCommerceNetworkInterface.class, "");
+        Call<List<Product>> call = apiInterface.getListProducts(pageNo, WooCommerceApiClient.CONSUMER_KEY, WooCommerceApiClient.CONSUMER_SECRET);
         call.enqueue(new Callback<List<Product>>() {
             @Override
             public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
@@ -59,8 +60,8 @@ public class ProductHomeViewModel extends AndroidViewModel {
     }
 
     public void fetchListCategories() {
-        WooCommerceNetworkInterface apiInterface = WooCommerceApiClient.createService(WooCommerceNetworkInterface.class, WooCommerceApiClient.CONSUMER_KEY, WooCommerceApiClient.CONSUMER_SECRET);
-        Call<List<Category>> call = apiInterface.getListCategories();
+        WooCommerceNetworkInterface apiInterface = WooCommerceApiClient.createService(WooCommerceNetworkInterface.class, "");
+        Call<List<Category>> call = apiInterface.getListCategories(WooCommerceApiClient.CONSUMER_KEY, WooCommerceApiClient.CONSUMER_SECRET);
         call.enqueue(new Callback<List<Category>>() {
             @Override
             public void onResponse(Call<List<Category>> call, Response<List<Category>> response) {

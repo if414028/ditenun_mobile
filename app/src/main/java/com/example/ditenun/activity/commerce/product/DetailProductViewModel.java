@@ -40,8 +40,8 @@ public class DetailProductViewModel extends AndroidViewModel {
 
     public void fetchDetailProduct(Integer id) {
         if (id != null) {
-            WooCommerceNetworkInterface apiInterface = WooCommerceApiClient.createService(WooCommerceNetworkInterface.class, WooCommerceApiClient.CONSUMER_KEY, WooCommerceApiClient.CONSUMER_SECRET);
-            Call<Product> call = apiInterface.getDetailProduct(id);
+            WooCommerceNetworkInterface apiInterface = WooCommerceApiClient.createService(WooCommerceNetworkInterface.class, "");
+            Call<Product> call = apiInterface.getDetailProduct(id, WooCommerceApiClient.CONSUMER_KEY, WooCommerceApiClient.CONSUMER_SECRET);
             call.enqueue(new Callback<Product>() {
                 @Override
                 public void onResponse(Call<Product> call, Response<Product> response) {

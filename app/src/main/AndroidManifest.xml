@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ditenun" >
+    package="com.example.ditenun">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -10,12 +10,17 @@
         android:allowBackup="true"
         android:icon="@drawable/logo_ditenun"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@drawable/logo_rounded"
         android:supportsRtl="true"
         android:theme="@style/Theme.Ditenun"
-        android:usesCleartextTraffic="true" >
-        <activity android:name=".activity.tenun.GenerateKristikActivity" >
-        </activity>
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".activity.commerce.account.CommerceLoginActivity"
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
+        <activity
+            android:name=".activity.tenun.GenerateKristikActivity"
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
         <activity
             android:name=".activity.tenun.GenerateMotifActivity"
             android:theme="@style/Theme.Design.Light.NoActionBar" />
@@ -42,7 +47,7 @@
             android:name=".activity.commerce.ProductDashboardActivity"
             android:theme="@style/Theme.Design.Light.NoActionBar"
             android:windowSoftInputMode="adjustNothing" />
-        <activity android:name=".activity.splash.SplashscreenActivity" >
+        <activity android:name=".activity.splash.SplashscreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -35,6 +35,8 @@ public class ProductFragment extends Fragment {
 
     private SimpleFilterRecyclerAdapter<Product> productAdapter;
 
+    private Integer pageNo;
+
     public static ProductFragment newInstance() {
         return new ProductFragment();
     }
@@ -61,7 +63,7 @@ public class ProductFragment extends Fragment {
     public void onResume() {
         super.onResume();
         viewModel.clearProductList();
-        viewModel.fetchListProduct();
+        viewModel.fetchListProduct(pageNo);
     }
 
     private void initLayout() {

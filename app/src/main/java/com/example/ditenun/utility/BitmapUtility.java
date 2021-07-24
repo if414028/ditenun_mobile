@@ -1,11 +1,17 @@
 package com.example.ditenun.utility;
 
+import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 
+import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
+
 import java.io.ByteArrayOutputStream;
+import java.util.concurrent.ExecutionException;
 
 public class BitmapUtility {
 
@@ -17,7 +23,7 @@ public class BitmapUtility {
         return bitmapdata;
     }
 
-    public static Bitmap drawableToBitmap(Drawable drawable) {
+    public static Bitmap drawableToBitmap(Drawable drawable, Context context) {
 
         Bitmap bitmap = null;
 
@@ -31,7 +37,7 @@ public class BitmapUtility {
         if (drawable.getIntrinsicWidth() <= 0 || drawable.getIntrinsicHeight() <= 0) {
             bitmap = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
         } else {
-            bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+            bitmap = Bitmap.createBitmap(5000, 5000, Bitmap.Config.ARGB_8888);
         }
 
         Canvas canvas = new Canvas(bitmap);

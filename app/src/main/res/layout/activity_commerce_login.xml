@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        tools:context=".function.activity.LoginActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            android:padding="@dimen/_16sdp"
+            android:scaleType="fitCenter">
+
+            <TextView
+                style="@style/Roboto.Bold.Condensed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/login_title"
+                android:textColor="@color/dark_grey"
+                android:textSize="@dimen/_20ssp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/Roboto.Condensed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="@string/login_desc"
+                    android:textColor="@color/dark_blue" />
+
+                <TextView
+                    android:id="@+id/gotoRegister"
+                    style="@style/Roboto.Condensed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_4sdp"
+                    android:gravity="center_vertical"
+                    android:text="@string/underlined_sign_up"
+                    android:textColor="@color/blue_356cd3" />
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/Roboto.Bold.Condensed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_24sdp"
+                android:text="@string/email"
+                android:textColor="@color/dark_blue"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/email"
+                style="@style/Roboto.Condensed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:background="@drawable/edittext_rounded"
+                android:ems="10"
+                android:hint="@string/email_hint"
+                android:inputType="textEmailAddress"
+                android:padding="@dimen/_16sdp"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:id="@+id/tv_username_error_message"
+                style="@style/Roboto.Light"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:textColor="@color/calmRed"
+                android:textSize="@dimen/_10ssp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                tools:text="Username error" />
+
+            <TextView
+                style="@style/Roboto.Bold.Condensed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/password"
+                android:textColor="@color/dark_blue"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/password"
+                style="@style/Roboto.Condensed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:background="@drawable/edittext_rounded"
+                android:ems="10"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:padding="@dimen/_16sdp"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:id="@+id/tv_password_error_message"
+                style="@style/Roboto.Light"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:textColor="@color/calmRed"
+                android:textSize="@dimen/_10ssp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                tools:text="Password error" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <CheckBox
+                    android:id="@+id/cb_remember_me"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/blue_358ed7" />
+
+                <TextView
+                    style="@style/Roboto.Condensed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/remember_me"
+                    android:textColor="@color/dark_blue" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_forgot_pwd"
+                style="@style/Roboto.Condensed"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:text="@string/forgot_password"
+                android:textColor="@color/blue_356cd3" />
+
+            <Button
+                android:id="@+id/login"
+                style="@style/Roboto.Light"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:background="@drawable/main_button"
+                android:ems="10"
+                android:padding="@dimen/_8sdp"
+                android:scaleType="fitCenter"
+                android:text="@string/sign_in"
+                android:textAllCaps="false"
+                android:textColor="@color/putih"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>

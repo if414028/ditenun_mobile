@@ -35,16 +35,13 @@ public class WooCommerceApiClient {
 
     public static <S> S createService(
             Class<S> serviceClass, final String authToken) {
-        if (!TextUtils.isEmpty(authToken)) {
-            HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
-            loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
-            if (!httpClient.interceptors().contains(loggingInterceptor)) {
-                httpClient.addInterceptor(new BasicAuthInterceptor(CONSUMER_KEY, CONSUMER_SECRET)).addInterceptor(loggingInterceptor);
-
-                builder.client(httpClient.build());
-                retrofit = builder.build();
-            }
+        if (!httpClient.interceptors().contains(loggingInterceptor)) {
+            httpClient.addInterceptor(loggingInterceptor);
+            builder.client(httpClient.build());
+            retrofit = builder.build();
         }
 
         return retrofit.create(serviceClass);

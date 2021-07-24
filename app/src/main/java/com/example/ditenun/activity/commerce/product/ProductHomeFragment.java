@@ -39,6 +39,8 @@ public class ProductHomeFragment extends Fragment {
     private SimpleRecyclerAdapter<Product> newArrivalsAdapter;
     private SimpleRecyclerAdapter<Category> categoryAdapter;
 
+    private Integer pageNo = 1;
+
     public static ProductHomeFragment newInstance() {
         return new ProductHomeFragment();
     }
@@ -65,7 +67,7 @@ public class ProductHomeFragment extends Fragment {
     public void onResume() {
         super.onResume();
         mViewModel.clearProductList();
-        mViewModel.fetchAllProduct();
+        mViewModel.fetchAllProduct(pageNo);
         mViewModel.fetchListCategories();
     }
 
@@ -76,11 +78,14 @@ public class ProductHomeFragment extends Fragment {
 
     private void initImageSlider() {
         RequestOptions requestOptions = new RequestOptions();
-        requestOptions.centerCrop();
+        requestOptions.fitCenter();
         List<String> imageList = new ArrayList<>();
-        imageList.add("https://firebasestorage.googleapis.com/v0/b/ditenun-62c37.appspot.com/o/product%2Fimage%2FHero%20banner%201.png?alt=media&token=404bcdc1-cd0b-496b-92ce-16ef1ec96d57");
-        imageList.add("https://firebasestorage.googleapis.com/v0/b/ditenun-62c37.appspot.com/o/product%2Fimage%2FHero%20banner%202.png?alt=media&token=ed1595f5-84d5-4ea6-9855-5bc783625c6c");
-        imageList.add("https://firebasestorage.googleapis.com/v0/b/ditenun-62c37.appspot.com/o/product%2Fimage%2FHero%20banner%203.png?alt=media&token=1b838228-25a0-40e3-8431-ed5c88e00c21");
+        imageList.add("https://ditenun.com/wp-content/uploads/2021/07/Hero-Promo-Minggu-1-July-2021.png");
+        imageList.add("https://ditenun.com/wp-content/uploads/2020/12/Banner-Home-landing-page-1-.png");
+        imageList.add("https://ditenun.com/wp-content/uploads/2020/12/Banner-Home-landing-page-2-.png");
+        imageList.add("https://ditenun.com/wp-content/uploads/2020/12/Banner-Home-landing-page-3-.png");
+        imageList.add("https://ditenun.com/wp-content/uploads/2020/12/Banner-Home-landing-page-4-.png");
+        imageList.add("https://ditenun.com/wp-content/uploads/2020/12/Banner-Home-landing-page-5-.png");
 
 
         for (int i = 0; i < imageList.size(); i++) {

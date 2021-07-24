@@ -14,7 +14,9 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.ditenun.R;
 import com.example.ditenun.activity.commerce.order.list.OrderActivity;
+import com.example.ditenun.activity.main.MainActivity;
 import com.example.ditenun.databinding.AccountFragmentBinding;
+import com.example.ditenun.utility.UserConfiguration;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -40,6 +42,7 @@ public class AccountFragment extends Fragment {
         binding = DataBindingUtil.inflate(inflater, R.layout.account_fragment, container, false);
 
         initLayout();
+        setupAction();
 
         return binding.getRoot();
     }
@@ -50,9 +53,28 @@ public class AccountFragment extends Fragment {
     }
 
     private void initLayout() {
+        String username = UserConfiguration.getInstance().getUsername();
+        String nickname = UserConfiguration.getInstance().getNickname();
+        String email = UserConfiguration.getInstance().getEmail();
+        binding.tvUsername.setText(String.format("Hi, %s", nickname));
+        binding.tvAccountType.setText(username);
+        binding.tvEmail.setText(email);
+    }
+
+    private void setupAction() {
         binding.btnListTransaction.setOnClickListener(view -> {
             Intent intent = new Intent(getContext(), OrderActivity.class);
             startActivity(intent);
+        });
+
+        binding.btnLogout.setOnClickListener(v -> {
+            UserConfiguration.getInstance().setLoggedIn(false);
+            UserConfiguration.getInstance().setUsername("");
+            UserConfiguration.getInstance().setEmail("");
+            Intent intent = new Intent(getContext(), MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
+            getActivity().finish();
         });
     }
 }

@@ -250,9 +250,9 @@
     <!--Login-->
     <string name="login_title">Sign In ke Ditenun</string>
     <string name="login_desc">Apakah Anda belum memiliki akun?</string>
-    <string name="email">E-mail</string>
-    <string name="email_hint">Email atau No HP</string>
-    <string name="password">Password</string>
+    <string name="email">Username / E-mail</string>
+    <string name="email_hint">Masukkan username / email anda</string>
+    <string name="password">Masukkan password</string>
     <string name="remember_me">Remember me</string>
     <string name="forgot_password">Lupa password?</string>
     <string name="sign_in">Sign In</string>
@@ -357,4 +357,8 @@
     <string name="detail_order">Lihat Detail</string>
     <string name="track_order">Lacak Pesanan</string>
     <string name="list_transaction">Daftar Transaksi</string>
+
+    <!-- Acoount -->
+    <string name="username_empty">Username tidak boleh kosong</string>
+    <string name="password_empty">Password tidak boleh kosong</string>
 </resources>

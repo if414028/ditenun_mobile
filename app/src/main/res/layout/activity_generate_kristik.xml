@@ -1,10 +1,288 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activity.tenun.GenerateKristikActivity">
+<layout>
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".function.activity.EditMotifActivity">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/_4sdp"
+            app:cardBackgroundColor="@color/dark_blue_2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/_8sdp">
+
+                <TextView
+                    style="@style/Roboto.Regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_8sdp"
+                    android:text="@string/app_name"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14ssp" />
+
+                <ImageView
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginLeft="@dimen/_2sdp"
+                    android:src="@drawable/logo_ditenun_white_strip" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/_14sdp">
+
+            <ImageView
+                android:id="@+id/btn_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_arrow_back_24" />
+
+            <TextView
+                style="@style/Roboto.Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_4sdp"
+                android:text="@string/generate_motif"
+                android:textColor="@color/dark_blue_2" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/motif_image_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp" />
+
+                        <com.otaliastudios.zoom.ZoomLayout
+                            android:id="@+id/kristik_zoom_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scrollbars="horizontal|vertical"
+                            app:hasClickableChildren="false"
+                            app:horizontalPanEnabled="true"
+                            app:maxZoom="10.0"
+                            app:maxZoomType="zoom"
+                            app:minZoom="0.7"
+                            app:minZoomType="zoom"
+                            app:verticalPanEnabled="true"
+                            app:zoomEnabled="true">
+
+                            <ImageView
+                                android:id="@+id/main_kristik_view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                        </com.otaliastudios.zoom.ZoomLayout>
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+
+            <Button
+                android:id="@+id/edit_button"
+                android:layout_width="100dp"
+                android:layout_height="48dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/button_background_press"
+                android:gravity="center"
+                android:text="@string/edit"
+                android:textColor="@color/colorText"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/ly_to_web_app"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                style="@style/Roboto.Bold.Condensed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_16sdp"
+                android:text="@string/web_app_button_title"
+                android:textAlignment="center"
+                android:textSize="@dimen/_12ssp" />
+
+            <Button
+                android:id="@+id/btn_to_web_app"
+                style="@style/Roboto.Regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_16sdp"
+                android:layout_marginRight="@dimen/_16sdp"
+                android:layout_marginBottom="@dimen/_16sdp"
+                android:background="@drawable/button_background_press"
+                android:padding="@dimen/_8sdp"
+                android:text="@string/web_app_button"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ly_generate_kristik_configuration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/putih"
+            android:gravity="bottom|center"
+            android:orientation="vertical"
+            android:padding="@dimen/_8sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:id="@+id/square_size_label"
+                    style="@style/Roboto.Bold.Condensed"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="@string/size"
+                    android:textColor="#4a4a4a"
+                    android:textSize="14sp" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroupUkuranKristik"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <RadioButton
+                        android:id="@+id/radioButtonKecil"
+                        style="@style/Roboto.Bold.Condensed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="@string/kecil" />
+
+                    <RadioButton
+                        android:id="@+id/radioButtonSedang"
+                        style="@style/Roboto.Bold.Condensed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/sedang" />
+
+                    <RadioButton
+                        android:id="@+id/radioButtonBesar"
+                        style="@style/Roboto.Bold.Condensed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/besar" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:id="@+id/color_size_label"
+                    style="@style/Roboto.Bold.Condensed"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="@string/color"
+                    android:textColor="#4a4a4a"
+                    android:textSize="14sp" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroupJumlahWarna"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingBottom="10dp"
+                    android:weightSum="3">
+
+                    <RadioButton
+                        android:id="@+id/radioButton2Warna"
+                        style="@style/Roboto.Bold.Condensed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/dua" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton5Warna"
+                        style="@style/Roboto.Bold.Condensed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="@string/lima" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton50Warna"
+                        style="@style/Roboto.Bold.Condensed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/lima_puluh" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/generate_button"
+                style="@style/Roboto.Regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button_background_press"
+                android:elevation="10dp"
+                android:text="Generate"
+                android:textColor="@color/putih" />
+        </LinearLayout>
+    </LinearLayout>
+
+</layout>

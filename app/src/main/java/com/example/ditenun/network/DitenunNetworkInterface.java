@@ -70,7 +70,7 @@ public interface DitenunNetworkInterface {
     );
 
     @Multipart
-    @POST("api/kristik-to-edit")
+    @POST("api/kristiks")
     Call<ResponseBody> kristikEditor(
             @Header("Authorization") String token,
             @Part("square_size") int squareSize,
@@ -79,7 +79,7 @@ public interface DitenunNetworkInterface {
     );
 
     @Multipart
-    @POST("api/motif")
+    @POST("api/motif-mobile")
     Call<ResponseBody> generateMotif(
             @Header("Authorization") String token,
             @Part("matrix") int matix,

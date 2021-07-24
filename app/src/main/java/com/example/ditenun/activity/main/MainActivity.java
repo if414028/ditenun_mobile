@@ -9,8 +9,10 @@ import android.view.View;
 
 import com.example.ditenun.R;
 import com.example.ditenun.activity.commerce.ProductDashboardActivity;
+import com.example.ditenun.activity.commerce.account.CommerceLoginActivity;
 import com.example.ditenun.activity.tenun.ListTenunActivity;
 import com.example.ditenun.databinding.ActivityMainBinding;
+import com.example.ditenun.utility.UserConfiguration;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,8 +33,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
         binding.btnEcommerceModule.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), ProductDashboardActivity.class);
-            startActivity(intent);
+            if (UserConfiguration.getInstance().isLoggedId()) {
+                Intent intent = new Intent(getApplicationContext(), ProductDashboardActivity.class);
+                startActivity(intent);
+            } else {
+                Intent intent = new Intent(getApplicationContext(), CommerceLoginActivity.class);
+                startActivity(intent);
+            }
         });
     }
 }
