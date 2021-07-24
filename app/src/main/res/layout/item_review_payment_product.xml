@@ -4,14 +4,16 @@
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/_16sdp">
+        android:background="@drawable/edittext_rounded"
+        android:padding="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_8sdp">
 
         <ImageView
             android:id="@+id/img_product"
             android:layout_width="@dimen/_50sdp"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
-            android:background="@color/gray_5"
+            android:src="@drawable/ic_box"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -34,6 +36,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Ulos Mangiring"
+                android:textSize="@dimen/_12ssp"
+                android:textColor="@color/dark_blue" />
+
+            <TextView
+                android:id="@+id/tv_price"
+                style="@style/Roboto.Condensed"
+                android:textSize="@dimen/_10ssp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rp. 1.350.000"
                 android:textColor="@color/dark_blue" />
 
             <TextView
@@ -42,15 +54,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_8sdp"
-                android:text="Jumlah 2"
-                android:textColor="@color/dark_blue" />
-
-            <TextView
-                android:id="@+id/tv_price"
-                style="@style/Roboto.Condensed"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Rp. 1.350.000 / unit"
+                android:textSize="@dimen/_10ssp"
+                android:text="Jumlah: 2"
                 android:textColor="@color/dark_blue" />
 
         </LinearLayout>

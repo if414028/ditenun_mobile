@@ -4,8 +4,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:background="@drawable/white_background_ditenun"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/white_background_ditenun">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/app_bar"
@@ -146,7 +146,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_4sdp"
-                        android:text="@string/payment_status"
+                        android:text="@string/order_status"
                         android:textColor="@color/dark_blue"
                         app:layout_constraintEnd_toStartOf="@id/tv_payment_status_value"
                         app:layout_constraintStart_toStartOf="parent"
@@ -190,14 +190,66 @@
                         app:layout_constraintTop_toBottomOf="@id/tv_payment_status_value"
                         tools:text="Kartu Kredit" />
 
+                    <TextView
+                        android:id="@+id/tv_total_discount_title"
+                        style="@style/Roboto.Condensed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:text="@string/discount"
+                        android:textColor="@color/colorGreen"
+                        app:layout_constraintEnd_toStartOf="@id/tv_total_discount"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_payment_method_title" />
+
+                    <TextView
+                        android:id="@+id/tv_total_discount"
+                        style="@style/Roboto.Bold.Condensed"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/colorGreen"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tv_total_discount_title"
+                        app:layout_constraintTop_toBottomOf="@id/tv_payment_method_value"
+                        tools:text="Rp 50.000" />
+
+                    <TextView
+                        android:id="@+id/tv_total_price_title"
+                        style="@style/Roboto.Condensed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:text="@string/grand_total"
+                        android:textColor="@color/dark_blue"
+                        app:layout_constraintEnd_toStartOf="@id/tv_total_price"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tv_total_discount_title" />
+
+                    <TextView
+                        android:id="@+id/tv_total_price"
+                        style="@style/Roboto.Bold.Condensed"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/dark_blue"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tv_total_price_title"
+                        app:layout_constraintTop_toBottomOf="@id/tv_total_discount"
+                        tools:text="Rp 50.000" />
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_product"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_24sdp"
-                    android:nestedScrollingEnabled="false" />
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:nestedScrollingEnabled="false"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/item_review_payment_product" />
 
             </LinearLayout>
 

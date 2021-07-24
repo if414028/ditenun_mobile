@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.DateFormat;
+import android.view.View;
 
 import com.example.ditenun.R;
 import com.example.ditenun.databinding.ActivityDetailOrderBinding;
@@ -18,11 +19,16 @@ import com.example.ditenun.utility.SimpleRecyclerAdapter;
 import com.example.ditenun.utility.TextUtility;
 import com.squareup.picasso.Picasso;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 public class DetailOrderActivity extends AppCompatActivity {
+
+    public static final String ARG_DETAIL_ORDER = "detailOrder";
 
     private ActivityDetailOrderBinding binding;
     private DetailOrderViewModel viewModel;
@@ -43,8 +49,8 @@ public class DetailOrderActivity extends AppCompatActivity {
     private void getAdditionalData() {
         Intent intent = getIntent();
         if (intent != null) {
-            if (intent.hasExtra("order")) {
-                viewModel.setOrder(intent.getParcelableExtra("order"));
+            if (intent.hasExtra(ARG_DETAIL_ORDER)) {
+                viewModel.setOrder(intent.getParcelableExtra(ARG_DETAIL_ORDER));
             }
         }
     }
@@ -60,29 +66,46 @@ public class DetailOrderActivity extends AppCompatActivity {
             ItemReviewPaymentProductBinding itemBinding = (ItemReviewPaymentProductBinding) holder.getLayoutBinding();
 
             itemBinding.tvProductName.setText(item.getName());
-            itemBinding.tvQty.setText(String.format("Jumlah %s", TextUtility.getInstance().formatToRp(item.getPriceInDouble())));
-            itemBinding.tvPrice.setText(String.format("%s / Unit", TextUtility.getInstance().formatToRp(item.getPriceInDouble() * item.getPurchasedStock())));
-            Picasso.with(getApplicationContext()).load(item.getImages().get(0).getSrc()).into(itemBinding.imgProduct);
+            itemBinding.tvQty.setText(String.format("Jumlah: %s", item.getQuantity()));
+            itemBinding.tvPrice.setText(TextUtility.getInstance().formatToRp(item.getSubtotal()));
         });
         binding.rvProduct.setAdapter(productAdapter);
     }
 
     private void observeLiveData() {
         viewModel.getSuccessGetDetailOrder().observe(this, aVoid -> {
-//            productAdapter.setMainData(viewModel.getOrder().getProduct());
-//            productAdapter.notifyDataSetChanged();
-//
-//            binding.tvOrderNumberValue.setText(viewModel.getOrder().getOrderNo());
-//            binding.tvOrderDateValue.setText(getReadableDateFormat(Long.parseLong(viewModel.getOrder().getOrderDate())));
-//            binding.tvPaymentStatusValue.setText(viewModel.getOrder().getPaymentStatus());
-//            binding.tvPaymentMethodValue.setText(viewModel.getOrder().getPaymentMethod().getPaymentName());
+            productAdapter.setMainData(viewModel.getOrder().getProductList());
+            productAdapter.notifyDataSetChanged();
+
+            binding.tvOrderNumberValue.setText(String.valueOf(viewModel.getOrder().getOderId()));
+            binding.tvOrderDateValue.setText(parseApiDateFormat(viewModel.getOrder().getDatePaid()));
+            binding.tvPaymentStatusValue.setText(viewModel.getOrder().getStatus());
+            binding.tvPaymentMethodValue.setText(viewModel.getOrder().getPaymentMethodTitle());
+            binding.tvTotalPrice.setText(TextUtility.getInstance().formatToRp(viewModel.getOrder().getTotalPrice()));
+            if (viewModel.getOrder().getTotalDiscount() != null && viewModel.getOrder().getTotalDiscount() > 0) {
+                binding.tvTotalDiscount.setText(TextUtility.getInstance().formatToRp(viewModel.getOrder().getTotalDiscount()));
+                binding.tvTotalDiscount.setVisibility(View.VISIBLE);
+                binding.tvTotalDiscountTitle.setVisibility(View.VISIBLE);
+            } else {
+                binding.tvTotalDiscount.setVisibility(View.GONE);
+                binding.tvTotalDiscountTitle.setVisibility(View.GONE);
+            }
         });
     }
 
-    private String getReadableDateFormat(long timestamp) {
-        Calendar cal = Calendar.getInstance(Locale.getDefault());
-        cal.setTimeInMillis(timestamp);
-        String date = DateFormat.format("dd MMM yyyy", cal).toString();
-        return date;
+    private String parseApiDateFormat(String dateString) {
+        SimpleDateFormat apiDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss", Locale.getDefault());
+        SimpleDateFormat shortDateFormatWithName = new SimpleDateFormat("dd MMMM yyyy, HH.mm", Locale.getDefault());
+        Date date;
+        String outputDate = "";
+
+        try {
+            date = apiDateFormat.parse(dateString);
+            outputDate = shortDateFormatWithName.format(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return outputDate;
     }
 }

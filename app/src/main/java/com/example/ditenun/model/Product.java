@@ -139,6 +139,16 @@ public class Product implements Parcelable {
         dimensions = in.readParcelable(ProductDimension.class.getClassLoader());
         images = in.createTypedArrayList(ProductImages.CREATOR);
         attributes = in.createTypedArrayList(ProductAttributes.CREATOR);
+        if (in.readByte() == 0) {
+            quantity = null;
+        } else {
+            quantity = in.readInt();
+        }
+        if (in.readByte() == 0) {
+            subtotal = null;
+        } else {
+            subtotal = in.readDouble();
+        }
         purchasedStock = in.readInt();
     }
 
@@ -175,6 +185,18 @@ public class Product implements Parcelable {
         dest.writeParcelable(dimensions, flags);
         dest.writeTypedList(images);
         dest.writeTypedList(attributes);
+        if (quantity == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(quantity);
+        }
+        if (subtotal == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeDouble(subtotal);
+        }
         dest.writeInt(purchasedStock);
     }
 
@@ -389,4 +411,19 @@ public class Product implements Parcelable {
         return Double.parseDouble(salePrice);
     }
 
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public Double getSubtotal() {
+        return subtotal;
+    }
+
+    public void setSubtotal(Double subtotal) {
+        this.subtotal = subtotal;
+    }
 }
