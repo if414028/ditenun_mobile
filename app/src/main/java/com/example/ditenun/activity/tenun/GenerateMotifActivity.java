@@ -253,6 +253,7 @@ public class GenerateMotifActivity extends AppCompatActivity {
                 getResources().getString(R.string.keluartanpasimpan),
                 getResources().getString(R.string.kembali),
                 getResources().getString(R.string.tidak),
+                true,
                 new OnConfirmListener() {
                     @Override
                     public void onPositive(View view, BottomSheetDialog dialog) {

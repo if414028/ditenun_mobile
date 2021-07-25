@@ -52,6 +52,11 @@ public class CommerceLoginActivity extends AppCompatActivity {
                 viewModel.doLogin(binding.email.getText().toString(), binding.password.getText().toString());
             }
         });
+
+        binding.gotoRegister.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), CommerceRegisterActivity.class);
+            startActivity(intent);
+        });
     }
 
     private void observeLiveEvent() {
