@@ -33,6 +33,7 @@ public interface WooCommerceNetworkInterface {
     @GET("wp-json/wc/v3/products")
     Call<List<Product>> getListProducts(
             @Query("page") Integer page,
+            @Query("per_page") Integer pageSize,
             @Query("consumer_key") String consumerKey,
             @Query("consumer_secret") String consumerSecret
     );
@@ -51,7 +52,8 @@ public interface WooCommerceNetworkInterface {
             @Query("consumer_key") String consumerKey,
             @Query("consumer_secret") String consumerSecret,
             @Query("customer") Integer customerId,
-            @Query("page") Integer page
+            @Query("page") Integer page,
+            @Query("per_page") Integer pageSize
     );
 
     @GET("wp-json/wc/v3/orders")

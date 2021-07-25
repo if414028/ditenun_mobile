@@ -363,6 +363,9 @@
     <string name="track_order">Lacak Pesanan</string>
     <string name="list_transaction">Daftar Transaksi</string>
     <string name="empty_order">Belum ada order untuk saat ini</string>
+    <string name="order_status">Status Pesanan</string>
+    <string name="grand_total">Grand Total</string>
+    <string name="discount">Discount</string>
 
     <!-- Acoount -->
     <string name="username_empty">Username tidak boleh kosong</string>

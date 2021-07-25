@@ -53,6 +53,18 @@ public class Order implements Parcelable {
     @Expose
     private List<Product> productList;
 
+    @SerializedName("status")
+    @Expose
+    private String status;
+
+    @SerializedName("date_paid")
+    @Expose
+    private String datePaid;
+
+    @SerializedName("discount_total")
+    @Expose
+    private Double totalDiscount;
+
     public Order() {
     }
 
@@ -86,6 +98,13 @@ public class Order implements Parcelable {
         paymentMethod = in.readString();
         paymentMethodTitle = in.readString();
         productList = in.createTypedArrayList(Product.CREATOR);
+        status = in.readString();
+        datePaid = in.readString();
+        if (in.readByte() == 0) {
+            totalDiscount = null;
+        } else {
+            totalDiscount = in.readDouble();
+        }
     }
 
     @Override
@@ -122,6 +141,14 @@ public class Order implements Parcelable {
         dest.writeString(paymentMethod);
         dest.writeString(paymentMethodTitle);
         dest.writeTypedList(productList);
+        dest.writeString(status);
+        dest.writeString(datePaid);
+        if (totalDiscount == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeDouble(totalDiscount);
+        }
     }
 
     @Override
@@ -281,6 +308,27 @@ public class Order implements Parcelable {
         this.product.add(product);
     }
 
+    public String getStatus() {
+        return status;
+    }
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
+    public String getDatePaid() {
+        return datePaid;
+    }
+
+    public void setDatePaid(String datePaid) {
+        this.datePaid = datePaid;
+    }
+
+    public Double getTotalDiscount() {
+        return totalDiscount;
+    }
+
+    public void setTotalDiscount(Double totalDiscount) {
+        this.totalDiscount = totalDiscount;
+    }
 }

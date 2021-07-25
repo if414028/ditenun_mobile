@@ -23,8 +23,11 @@ import com.example.ditenun.model.Product;
 import com.example.ditenun.utility.SimpleRecyclerAdapter;
 import com.squareup.picasso.Picasso;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 public class OrderActivity extends AppCompatActivity {
@@ -61,44 +64,33 @@ public class OrderActivity extends AppCompatActivity {
             ItemMyOrderBinding itemBinding = (ItemMyOrderBinding) holder.getLayoutBinding();
 
             itemBinding.tvOrderNumber.setText(String.format("Nomor Pesanan : %s", item.getOderId()));
-            itemBinding.tvOrderDate.setText(item.getCreatedDate());
+            itemBinding.tvOrderDate.setText(parseApiDateFormat(item.getCreatedDate()));
+            itemBinding.tvQty.setText(String.format("%d Produk", item.getProductList().size()));
+            itemBinding.tvOrderStatus.setText(item.getStatus());
 
-//            itemBinding.rvProduct.setLayoutManager(new LinearLayoutManager(getApplicationContext(), RecyclerView.HORIZONTAL, false));
-//            productAdapter = new SimpleRecyclerAdapter<>(new ArrayList<>(), R.layout.item_new_arrivals, (productHolder, productItem) -> {
-//                ItemNewArrivalsBinding productItemBinding = (ItemNewArrivalsBinding) productHolder.getLayoutBinding();
-//                productItemBinding.lyPrice.setVisibility(View.GONE);
-//                if (productItem != null) {
-//                    if (productItem.getImages() != null) {
-//                        Picasso.with(getApplicationContext()).load(productItem.getImages().get(0).getSrc()).into(productItemBinding.imgNewArrivals);
-//                    }
-//                }
-//            });
-//            itemBinding.rvProduct.setAdapter(productAdapter);
-//            productAdapter.setMainData(item.getProduct());
-//            productAdapter.notifyDataSetChanged();
-
-            itemBinding.btnDetailOrder.setOnClickListener(view -> {
+            itemBinding.getRoot().setOnClickListener(v -> {
                 Intent intent = new Intent(getApplicationContext(), DetailOrderActivity.class);
-                intent.putExtra("order", item);
+                intent.putExtra(DetailOrderActivity.ARG_DETAIL_ORDER, item);
                 startActivity(intent);
-            });
-            itemBinding.btnTrackOrder.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(getApplicationContext(), TrackOrderActivity.class);
-                    intent.putExtra("order", item);
-                    startActivity(intent);
-                }
             });
         });
         binding.rvOrder.setAdapter(orderAdapter);
     }
 
-    private String getReadableDateFormat(long timestamp) {
-        Calendar cal = Calendar.getInstance(Locale.getDefault());
-        cal.setTimeInMillis(timestamp);
-        String date = DateFormat.format("dd MMM yyyy", cal).toString();
-        return date;
+    private String parseApiDateFormat(String dateString){
+        SimpleDateFormat apiDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss", Locale.getDefault());
+        SimpleDateFormat shortDateFormatWithName = new SimpleDateFormat("dd MMMM yyyy, HH.mm", Locale.getDefault());
+        Date date;
+        String outputDate = "";
+
+        try{
+            date = apiDateFormat.parse(dateString);
+            outputDate = shortDateFormatWithName.format(date);
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+
+        return outputDate;
     }
 
     private void observeLiveData() {

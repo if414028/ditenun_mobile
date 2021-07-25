@@ -34,7 +34,7 @@ public class OrderViewModel extends AndroidViewModel {
 
     public void fetchOrders(Integer page) {
         WooCommerceNetworkInterface networkInterface = WooCommerceApiClient.createService(WooCommerceNetworkInterface.class, "");
-        Call<List<Order>> call = networkInterface.getListOrders(WooCommerceApiClient.CONSUMER_KEY, WooCommerceApiClient.CONSUMER_SECRET, 7, page);
+        Call<List<Order>> call = networkInterface.getListOrders(WooCommerceApiClient.CONSUMER_KEY, WooCommerceApiClient.CONSUMER_SECRET, 7, page, 50);
         call.enqueue(new Callback<List<Order>>() {
             @Override
             public void onResponse(Call<List<Order>> call, Response<List<Order>> response) {

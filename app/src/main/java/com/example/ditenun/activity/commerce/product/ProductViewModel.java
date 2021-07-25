@@ -31,7 +31,7 @@ public class ProductViewModel extends AndroidViewModel {
 
     public void fetchListProduct(Integer pageNo) {
         WooCommerceNetworkInterface apiInterface = WooCommerceApiClient.createService(WooCommerceNetworkInterface.class, "");
-        Call<List<Product>> call = apiInterface.getListProducts(pageNo, WooCommerceApiClient.CONSUMER_KEY, WooCommerceApiClient.CONSUMER_SECRET);
+        Call<List<Product>> call = apiInterface.getListProducts(pageNo, 50, WooCommerceApiClient.CONSUMER_KEY, WooCommerceApiClient.CONSUMER_SECRET);
         call.enqueue(new Callback<List<Product>>() {
             @Override
             public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
