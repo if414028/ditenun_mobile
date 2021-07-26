@@ -252,7 +252,7 @@
     <string name="login_desc">Apakah Anda belum memiliki akun?</string>
     <string name="email">Username / E-mail</string>
     <string name="email_hint">Masukkan username / email anda</string>
-    <string name="password">Masukkan password anda</string>
+    <string name="password">Password</string>
     <string name="remember_me">Remember me</string>
     <string name="forgot_password">Lupa password?</string>
     <string name="sign_in">Sign In</string>

@@ -97,14 +97,16 @@ public class DetailOrderActivity extends AppCompatActivity {
         SimpleDateFormat apiDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss", Locale.getDefault());
         SimpleDateFormat shortDateFormatWithName = new SimpleDateFormat("dd MMMM yyyy, HH.mm", Locale.getDefault());
         Date date;
-        String outputDate = "";
+        String outputDate = "-";
 
-        try {
-            date = apiDateFormat.parse(dateString);
-            outputDate = shortDateFormatWithName.format(date);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+       if (dateString != null) {
+           try {
+               date = apiDateFormat.parse(dateString);
+               outputDate = shortDateFormatWithName.format(date);
+           } catch (ParseException e) {
+               e.printStackTrace();
+           }
+       }
 
         return outputDate;
     }

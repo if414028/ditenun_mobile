@@ -71,7 +71,7 @@ public class AccountFragment extends Fragment {
             UserConfiguration.getInstance().setLoggedIn(false);
             UserConfiguration.getInstance().setUsername("");
             UserConfiguration.getInstance().setEmail("");
-            UserConfiguration.getInstance().setUserId(null);
+            UserConfiguration.getInstance().setUserId(0);
             UserConfiguration.getInstance().setNickname("");
 
             Intent intent = new Intent(getContext(), MainActivity.class);

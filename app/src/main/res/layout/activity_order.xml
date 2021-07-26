@@ -118,7 +118,7 @@
                 android:adjustViewBounds="true"
                 android:src="@drawable/ic_empty_cart" />
 
-            <TextClock
+            <TextView
                 style="@style/Roboto.Mono.SemiBold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
