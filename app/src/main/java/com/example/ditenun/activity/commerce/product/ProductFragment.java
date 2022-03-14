@@ -100,8 +100,8 @@ public class ProductFragment extends Fragment {
         productAdapter = new SimpleFilterRecyclerAdapter<>(new ArrayList<>(), R.layout.item_new_arrivals, (holder, item) -> {
             ItemNewArrivalsBinding itemBinding = (ItemNewArrivalsBinding) holder.getLayoutBinding();
             if (item != null) {
-                if (item.getImages() != null) {
-                    Picasso.with(getContext()).load(item.getImages().get(0).getSrc()).into(itemBinding.imgNewArrivals);
+                if (item.getImages() != null && item.getImages().size() > 0) {
+                    Picasso.with(getContext()).load(item.getImages().get(0).getSrc()).resize(100, 150).centerCrop().into(itemBinding.imgNewArrivals);
                 }
             }
             itemBinding.tvProductName.setText(item.getName());
